@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * Created by Damma on 12-Jun-18.
- */
 @RestController
 @RequestMapping("/users")
 public class UserController {
