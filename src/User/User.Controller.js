@@ -5,18 +5,18 @@ var UserController = function(){
     this.insert = (data) => {
         return new Promise((resolve, reject) => {
             var user = new UserSchema({
-              //  empID: data.empID,
+                empID: data.empID,
                 userName: data.userName,
                 password: data.password,
-                //role: data.role,
-                //joinedYear: date.joinedYear
+                role: data.role,
+                joinedYear: data.joinedYear,
             });
             user.save().then(() => {
                 resolve({status: 200, message: "Added new user"});
             }).catch(err => {
                 reject({status: 500, message: "Error:- "+err});
             })
-        })
+        });
 
     }
 
@@ -27,7 +27,7 @@ var UserController = function(){
             }).catch(err => {
                 reject({status: 500, message: "Error:- " + err});
             })
-        })
+        });
     }
 
     this.searchAll = () => {
@@ -37,7 +37,7 @@ var UserController = function(){
             }).catch(err => {
                 reject({status: 500, message: "Error:- " + err});
             })
-        })
+        });
     }
 
     this.search = (userName) => {
@@ -47,7 +47,7 @@ var UserController = function(){
             }).catch(err => {
                 reject({status: 500, message: "Error:- " + err});
             })
-        })
+        });
     }
 
     this.delete = (userName) => {
@@ -57,7 +57,7 @@ var UserController = function(){
             }).catch(err => {
                 reject({status: 500, message:"Error:- " + err});
             })
-        })
+        });
     }
 }
 
