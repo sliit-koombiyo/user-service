@@ -22,10 +22,13 @@ Mongoose.connect('mongodb://abc123:abc123@ds147450.mlab.com:47450/koombiyo-af', 
 });
 
 
+
 app.listen(port, (err) => {
     if(err) {
         console.log(err);
         process.exit(-1);
     }
+
     console.log("Server listen port " + port);
+
 });

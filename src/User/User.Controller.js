@@ -42,8 +42,13 @@ var UserController = function(){
 
     this.search = (userName) => {
         return new Promise((resolve, reject) => {
-            UserSchema.find({userName:userName}).exec().then(user => {
-                resolve({status: 200, data: user});
+            UserSchema.findOne({userName:userName}).exec().then(user => {
+                console.log("User : " + user)
+                if(user.userName) {
+                    resolve(user);
+                } else {
+                    reject(new Error('User not found'))
+                }
             }).catch(err => {
                 reject({status: 500, message: "Error:- " + err});
             })
