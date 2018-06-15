@@ -4,6 +4,9 @@ const Routes        = require("./Routes");
 const Cors          = require("cors");
 const Mongoose = require("mongoose");
 
+var jwt    = require('jsonwebtoken');
+
+
 const app = Express();
 app.use(Cors());
 
@@ -17,8 +20,6 @@ Mongoose.connect('mongodb://abc123:abc123@ds147450.mlab.com:47450/koombiyo-af', 
     }
     console.log('Connected to DB');
 });
-
-Mongoose.Promise = global.Promise;
 
 
 app.listen(8083, 'localhost', (err) => {
