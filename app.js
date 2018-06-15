@@ -27,5 +27,5 @@ app.listen(process.env.PORT || 5000, 'localhost', (err) => {
         console.log(err);
         process.exit(-1);
     }
-    console.log("Server listen port 8083");
+    console.log("Server listen port " + process.env.PORT);
 });
