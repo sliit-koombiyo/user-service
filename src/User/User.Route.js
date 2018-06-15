@@ -1,8 +1,9 @@
 var express     = require('express');
 var router      = express.Router();
 var Controller  = require('./User.Controller');
+var jwt = require('jsonwebtoken');
 
-router.post('/', (req, res,next) => {
+router.post('/register', (req, res,next) => {
     Controller.insert(req.body).then((data) => {
         res.status(data.status).send(data);
     }).catch(next)        
@@ -39,5 +40,6 @@ router.delete('/:userName', (req, res) => {
     }).catch(err => {
         res.status(err.status).send({message: err.message});
     })
-})
+});
+
 module.exports = router;
