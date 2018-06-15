@@ -64,6 +64,14 @@ var UserController = function(){
             })
         });
     }
+
+    /*this.recover = (empID, userName, password)=>{
+        return new Promise((resolve, reject)=>{
+            if((UserSchema.empID===empID) && (UserSchema.userName=== userName)){
+                UserSchema.findOneAndUpdate({userName:Username})
+            }
+        })
+    }*/
 }
 
 module.exports = new UserController();
