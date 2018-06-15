@@ -6,7 +6,7 @@ const Mongoose = require("mongoose");
 
 var jwt    = require('jsonwebtoken');
 
-
+const port = process.env.PORT || 5001
 const app = Express();
 app.use(Cors());
 
@@ -22,7 +22,7 @@ Mongoose.connect('mongodb://abc123:abc123@ds147450.mlab.com:47450/koombiyo-af', 
 });
 
 
-app.listen(8083, 'localhost', (err) => {
+app.listen(port, 'localhost', (err) => {
     if(err) {
         console.log(err);
         process.exit(-1);
