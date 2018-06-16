@@ -6,7 +6,9 @@ var jwt = require('jsonwebtoken');
 router.post('/register', (req, res,next) => {
     Controller.insert(req.body).then((data) => {
         res.status(data.status).send(data);
-    }).catch(next)        
+    }).catch(err => {
+        res.status(err.status).send({message: err.message});
+    })        
 });
 
 

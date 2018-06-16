@@ -21,7 +21,6 @@ const UserSchema = new Schema({
     },
     joinedYear: {
         type: String,
-        require: true
     },    
 });
 

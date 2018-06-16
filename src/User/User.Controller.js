@@ -11,11 +11,28 @@ var UserController = function(){
                 role: data.role,
                 joinedYear: data.joinedYear,
             });
-            user.save().then(() => {
-                resolve({status: 200, message: "Added new user"});
-            }).catch(err => {
-                reject({status: 500, message: "Error:- "+err});
-            })
+           /* UserSchema.findOne({userName: req.res.userName}, function(err, user){
+                if(err){
+                    console.log(err);
+                }
+                var msg;
+                if(user){
+                    console.log(user);
+                    msg='User exists';
+                    console.log(msg);
+                }else {
+                    msg= "user doesn't exist";
+                    console.log(message)
+                }
+                res.json({message: msg});
+            });*/
+           user.save().then(() => {
+                    resolve({status: 200, message: "Added new user"});
+                }).catch(err => {
+                    reject({status: 500, message: "Error:- "+err});
+                })
+            
+            
         });
 
     }
@@ -44,7 +61,7 @@ var UserController = function(){
         return new Promise((resolve, reject) => {
             UserSchema.findOne({userName:userName}).exec().then(user => {
                 console.log("User : " + user)
-                if(user.userName) {
+                if(user.userName === userName) {
                     resolve(user);
                 } else {
                     reject(new Error('User not found'))
